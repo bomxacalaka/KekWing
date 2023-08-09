@@ -1,6 +1,8 @@
 package net.keker.kekwing;
 
 import com.mojang.logging.LogUtils;
+import net.keker.kekwing.block.ModBlocks;
+import net.keker.kekwing.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -31,6 +33,9 @@ public class KekWing
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
